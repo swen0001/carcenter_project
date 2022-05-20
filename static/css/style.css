@@ -3338,8 +3338,8 @@ input[type=checkbox]:checked + label:before {
     background: #56d7fe!important;
 }
 
-.team-1 .google-bg:hover {
-    background: #dc4e41!important;
+.team-1 .telegram-bg:hover {
+    background: #2481cc!important;
 }
 
 .our-team-2{
