@@ -1,7 +1,7 @@
 ../venv/
 carcenter/media/
-carcenter/settings.py
 .idea/
+carcenter/settings.py
 carcenter/db.sqlite3
 media/
-
+carcenter/carcenter_db
