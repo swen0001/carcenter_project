@@ -59,7 +59,7 @@ class Car(models.Model):
         ('3', 'Позашляховик'),
         ('4', 'Універсал'),
         ('5', 'Купе'),
-        ('', 'Кабріолет'),
+        ('6', 'Кабріолет'),
     )
 
     door_choices = (
@@ -113,3 +113,7 @@ class Car(models.Model):
     car_photo_8 = models.ImageField(upload_to='photo/%Y/%m/%d/', blank=True)
     car_photo_9 = models.ImageField(upload_to='photo/%Y/%m/%d/', blank=True)
     car_photo_10 = models.ImageField(upload_to='photo/%Y/%m/%d/', blank=True)
+
+
+    def __str__(self):
+        return self.car_title
