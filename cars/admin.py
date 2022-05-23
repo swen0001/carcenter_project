@@ -9,7 +9,7 @@ from django_admin_listfilter_dropdown.filters import (
 class CarAdmin(admin.ModelAdmin):
 
     def CarImage(self, object):
-        return format_html('<img src="{}" width="60" style="border-radius: 15px" />'.format(object.car_photo_1.url))
+        return format_html('<img src="{}" width="100" style="border-radius: 15px" />'.format(object.car_photo_1.url))
 
     list_display = ('id', 'CarImage', 'car_title', 'region', 'year', 'price', 'body_style', 'is_featured')
     list_display_links = ('id', 'CarImage', 'car_title')
