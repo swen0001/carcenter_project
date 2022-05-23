@@ -4,6 +4,7 @@ from django.utils.html import format_html
 from django_admin_listfilter_dropdown.filters import (
     DropdownFilter, ChoiceDropdownFilter, RelatedDropdownFilter
 )
+from rangefilter.filters import DateTimeRangeFilter
 
 
 class CarAdmin(admin.ModelAdmin):
@@ -17,10 +18,12 @@ class CarAdmin(admin.ModelAdmin):
     search_fields = ('id', 'car_title', 'city')
     list_filter = (
         ('region', ChoiceDropdownFilter),
-        ('fuel_type', ChoiceDropdownFilter),
+        ('fuel_type', DropdownFilter),
         ('year', DropdownFilter),
+        ('created_date', DateTimeRangeFilter),
         'model',
-        'color')
+        'color',
+        )
 
 
 admin.site.register(Car, CarAdmin)
