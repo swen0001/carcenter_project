@@ -90,7 +90,7 @@ class Car(models.Model):
     model = models.CharField(max_length=150, blank=True)
     year = models.IntegerField(('year'), choices=year_choice)
     price = models.IntegerField()
-    price_new = models.IntegerField(blank=True)
+    price_new = models.IntegerField(blank=True, default=0)
     description = RichTextField(blank=True)
     features = MultiSelectField(choices=features_choices, blank=True)
     body_style = models.CharField(choices=body_style_choices, max_length=150, blank=True)

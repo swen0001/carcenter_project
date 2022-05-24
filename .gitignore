@@ -5,3 +5,4 @@ carcenter/settings.py
 carcenter/db.sqlite3
 media/
 carcenter/carcenter_db
+static/tps/
