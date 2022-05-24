@@ -1,5 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% block content %}
+{% load humanize %}
 {% load static %}
 <!-- Header + Navigation-->
 {% include 'layouts/header.html' %}
@@ -133,12 +134,12 @@
                                 <div class="tag-2">Рекомендуємо</div>
                                 <div class="price-box">
                                     {% if car.price_new == 0 %}
-                                        <span>${{ car.price }}</span>
+                                        <span>${{ car.price | intcomma }}</span>
                                         <br>
                                     {% else %}
-                                        <span class="del"><del>${{ car.price }}</del></span>
+                                        <span class="del"><del>${{ car.price | intcomma }}</del></span>
                                         <br>
-                                        <span>${{ car.price_new }}</span>
+                                        <span>${{ car.price_new | intcomma }}</span>
                                     {% endif %}
                                 </div>
                                 <img class="d-block w-100" src="{{ car.car_photo_1.url }}" alt="car" style="min-height: 262px; max-height: 262px">
@@ -207,7 +208,7 @@
                             </div>
                             <ul class="facilities-list clearfix">
                                 <li>{{ car.fuel_type }}</li>
-                                <li>{{ car.kilometers }} km</li>
+                                <li>{{ car.kilometers | intcomma }} km</li>
                                 <li>{{ car.transmission }}</li>
                                 <li>{{ car.body_style }}</li>
                                 <li>{{ car.color }}</li>
@@ -252,7 +253,7 @@
                             <div class="facilities-list clearfix">
                                         <ul>
                                             <li>
-                                                <span><i class="flaticon-way"></i></span>{{ car.kilometers }} km
+                                                <span><i class="flaticon-way"></i></span>{{ car.kilometers | intcomma }} km
                                              </li>
                                             <li>
                                                 <span><i class="flaticon-calendar-1"></i></span>{{ car.year }}
@@ -332,9 +333,9 @@
                         </div>
                         <div class="pull-right">
                             {% if car.price_new == 0 %}
-                                <p class="price">${{ car.price }}</p>
+                                <p class="price">${{ car.price | intcomma }}</p>
                             {% else %}
-                                <p class="price">${{ car.price_new }}</p>
+                                <p class="price">${{ car.price_new | intcomma }}</p>
                             {% endif %}
                         </div>
                     </div>
