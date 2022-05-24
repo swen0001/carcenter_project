@@ -80,7 +80,7 @@ class Car(models.Model):
 
     transmission_choices = (
         ('Механіка', 'Механіка'),
-        ('Автоматична', 'Автоматична')
+        ('Автомат', 'Автомат')
     )
 
     car_title = models.CharField(max_length=250)

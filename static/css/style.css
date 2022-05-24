@@ -6827,7 +6827,7 @@ footer {
 
 /** Carousel indicators section start **/
 .carousel-indicators-section{
-    background: red;
+    background: slategrey;
     display: inline-block;
     width: 100%;
 }
