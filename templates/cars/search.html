@@ -24,47 +24,36 @@
     <div class="container">
         <div class="search-area-inner">
             <div class="search-contents">
-                <form method="GET">
+                <form method="GET" action="{% url 'search' %}">
                     <div class="row">
+
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
-                                <select class="selectpicker search-fields" name="select-brand">
-                                    <option disabled="disabled" selected="selected">Select Brand</option>
-                                    <option>Audi</option>
-                                    <option>BMW</option>
-                                    <option>Honda</option>
-                                    <option>Nissan</option>
+                                <select class="selectpicker search-fields" name="brand">
+                                    <option disabled="disabled" selected="selected">Бренд</option>
+                                    {% for brand in brand_search %}
+                                        <option value="{{brand}}">{{brand}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
-                                <select class="selectpicker search-fields" name="select-make">
-                                    <option disabled="disabled" selected="selected">Select Make</option>
-                                    <option>BMW</option>
-                                    <option>Honda</option>
-                                    <option>Lamborghini Huracán</option>
-                                    <option>Sports Car</option>
+                                <select class="selectpicker search-fields" name="region">
+                                    <option disabled="disabled" selected="selected">Область</option>
+                                    {% for region in region_search %}
+                                        <option value="{{region}}">{{region}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
-                                <select class="selectpicker search-fields" name="select-location">
-                                    <option disabled="disabled" selected="selected">Select Location</option>
-                                    <option>United States</option>
-                                    <option>United Kingdom</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-                            <div class="form-group">
-                                <select class="selectpicker search-fields" name="select-year">
-                                    <option disabled="disabled" selected="selected">Select Year</option>
-                                    <option>2016</option>
-                                    <option>2017</option>
-                                    <option>2018</option>
-                                    <option>2019</option>
+                                <select class="selectpicker search-fields" name="fuel_type">
+                                    <option disabled="disabled" selected="selected">Тип палива</option>
+                                    {% for fuel_type in fuel_type_search %}
+                                        <option value="{{fuel_type}}">{{fuel_type}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
@@ -72,19 +61,21 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
-                                <select class="selectpicker search-fields" name="select-type">
-                                    <option disabled="disabled" selected="selected">Select Type Of Car</option>
-                                    <option>New Car</option>
-                                    <option>Used Car</option>
+                                <select class="selectpicker search-fields" name="year">
+                                    <option disabled="disabled" selected="selected">Рік випуску</option>
+                                    {% for year in year_search %}
+                                        <option value="{{year}}">{{year}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
-                                <select class="selectpicker search-fields" name="transmission">
-                                    <option disabled="disabled" selected="selected">Transmission</option>
-                                    <option>Automatic</option>
-                                    <option>Manual</option>
+                                <select class="selectpicker search-fields" name="body_style">
+                                    <option disabled="disabled" selected="selected">Кузов</option>
+                                    {% for body_style in body_style_search %}
+                                        <option value="{{body_style}}">{{body_style}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>

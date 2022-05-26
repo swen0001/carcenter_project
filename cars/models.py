@@ -87,7 +87,7 @@ class Car(models.Model):
     region = models.CharField(choices=region_choice, max_length=100)
     city = models.CharField(max_length=150, blank=True)
     color = models.CharField(max_length=150, blank=True)
-    model = models.CharField(max_length=150, blank=True)
+    brand = models.CharField(max_length=150, blank=True)
     year = models.IntegerField(('year'), choices=year_choice)
     price = models.IntegerField()
     price_new = models.IntegerField(blank=True, default=0)

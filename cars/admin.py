@@ -21,7 +21,7 @@ class CarAdmin(admin.ModelAdmin):
         ('fuel_type', DropdownFilter),
         ('year', DropdownFilter),
         ('created_date', DateTimeRangeFilter),
-        'model',
+        'brand',
         'color',
         )
 
