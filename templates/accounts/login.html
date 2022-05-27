@@ -1,0 +1,57 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+{% load static %}
+{% include 'layouts/header.html' %}
+{% include 'layouts/nav.html' %}
+<div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>Будь ласка, авторизуйтесь!</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Головна</a></li>
+                <li class="active">Вхід</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-section">
+                    <div class="logo-2">
+                        <a href="index.html">
+                            <img src="{% static 'img/logos/black-logo.png' %}" alt="logo">
+                        </a>
+                    </div>
+                    <h3>Увійдіть у свій аккаунт</h3>
+                    <form action="{% url 'login' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group form-box">
+                            <input type="email" name="email" class="input-text" placeholder="Email" required>
+                            <i class="flaticon-mail"></i>
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="password" name="password" class="input-text" placeholder="Пароль" required>
+                            <i class="flaticon-lock"></i>
+                        </div>
+                        <div class="form-group mb-0 clearfix">
+                            <button type="submit" class="btn-md btn-theme float-left">Вхід</button>
+                        </div>
+                        <div class="extra-login clearfix">
+                            <span>Або авторизуйтесь за допомогою:</span>
+                        </div>
+                        <div class="clearfix"></div>
+                        <ul class="social-list">
+                            <li><a href="#" class="facebook-bg"><i class="fa fa-facebook facebook-i"></i><span>Facebook</span></a></li>
+                            <li><a href="#" class="google-bg"><i class="fa fa-google google-i"></i><span>Google</span></a></li>
+                        </ul>
+                    </form>
+                    <p>Ще не має аккаунта? <a href="{% url 'register' %}" class="thembo" style="color: red"> Реєстрація</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'layouts/footer.html' %}
+{% endblock content %}
