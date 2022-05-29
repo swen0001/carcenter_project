@@ -2,7 +2,7 @@
 {% load static %}
 <html>
 <head>
-    <title>CarCenter</title>
+    <title>CarCenter {% block title %} {% endblock %} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
@@ -70,6 +70,7 @@
 <script src="{% static 'js/lightgallery-all.js' %}"></script>
 <script src="{% static 'js/jnoty.js' %}"></script>
 <script src="{% static 'js/app.js' %}"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 
 
 </body>

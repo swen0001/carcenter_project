@@ -1,6 +1,9 @@
 {% extends 'layouts/base.html' %}
+{% block title %} | Вхід {% endblock %}
 {% block content %}
 {% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
 {% include 'layouts/header.html' %}
 {% include 'layouts/nav.html' %}
 <div class="sub-banner overview-bgi">
@@ -20,11 +23,12 @@
             <div class="col-lg-12">
                 <div class="form-section">
                     <div class="logo-2">
-                        <a href="index.html">
+                        <a href="{% url 'home' %}">
                             <img src="{% static 'img/logos/black-logo.png' %}" alt="logo">
                         </a>
                     </div>
                     <h3>Увійдіть у свій аккаунт</h3>
+                    {% include 'layouts/messages.html' %}
                     <form action="{% url 'login' %}" method="POST">
                         {% csrf_token %}
                         <div class="form-group form-box">
@@ -43,8 +47,8 @@
                         </div>
                         <div class="clearfix"></div>
                         <ul class="social-list">
-                            <li><a href="#" class="facebook-bg"><i class="fa fa-facebook facebook-i"></i><span>Facebook</span></a></li>
-                            <li><a href="#" class="google-bg"><i class="fa fa-google google-i"></i><span>Google</span></a></li>
+                            <li><a href="{% provider_login_url 'facebook' method='js_sdk' %}" class="facebook-bg"><i class="fa fa-facebook facebook-i"></i><span>Facebook</span></a></li>
+                            <li><a href="{% provider_login_url 'google' %}" class="google-bg"><i class="fa fa-google google-i"></i><span>Google</span></a></li>
                         </ul>
                     </form>
                     <p>Ще не має аккаунта? <a href="{% url 'register' %}" class="thembo" style="color: red"> Реєстрація</a></p>
