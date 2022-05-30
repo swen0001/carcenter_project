@@ -19,4 +19,3 @@ def news_detail(request, id):
         'single_news': single_news,
     }
     return render(request, 'news/news_detail.html', data)
-
