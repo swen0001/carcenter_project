@@ -35,9 +35,6 @@ def about(request):
     return render(request, 'home/about.html', data)
 
 
-def cars(request):
-    return render(request, 'home/about.html')
-
 
 def contacts(request):
     if request.method == 'POST':
@@ -64,6 +61,3 @@ def contacts(request):
         return redirect('contacts')
     return render(request, 'home/contacts.html')
 
-
-def news(request):
-    return render(request, 'home/news.html')

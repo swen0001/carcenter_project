@@ -19,6 +19,44 @@
 </div>
 <!-- Sub Banner end -->
 
+<div class="featured-car content-area-5">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>Авто <span>новини</span></h1>
+            <p>Найновіші новини зі світу авто!</p>
+        </div>
+        <!-- Slick slider area start -->
+        <div class="slick-slider-area clearfix">
+            <div class="row slick-carousel" data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+               {% for new in news %}
+                    <div class="slick-slide-item">
+                    <div class="car-box-3">
+                        <div class="car-thumbnail">
+                            <a href="{% url 'news_detail' new.id %}" class="car-img">
+                                <img class="d-block w-100" src="{{ new.news_photo.url }}" alt="car" style="min-height: 220px; max-height: 220px">
+                            </a>
+                        </div>
+                        <div class="detail" style="min-height: 150px; max-height: 150px">
+                            <h1 class="title">
+                                <a href="{% url 'news_detail' new.id %}" style="text-align: center;">{{ new.news_title }}</a>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+               {% endfor %}
+            </div>
+            <div class="slick-btn">
+                <div class="slick-prev slick-arrow-buton sab-4">
+                    <i class="fa fa-angle-left"></i>
+                </div>
+                <div class="slick-next slick-arrow-buton sab-3">
+                    <i class="fa fa-angle-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% include 'layouts/footer.html' %}
 {% endblock content %}

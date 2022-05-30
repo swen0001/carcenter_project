@@ -45,12 +45,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a '''{% if 'news' in request.path %}
+                        <a href="{% url 'news' %}"
+                        '''{% if 'news' in request.path %}
                                 class="nav-link active"
                             {% else %}
                                 class="nav-link"
                             {% endif %}'''
-                        href="{% url 'news' %}"
                         >
                             Новини
                         </a>
