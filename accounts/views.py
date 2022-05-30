@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
+from django.contrib.auth.decorators import login_required
+from contacts.models import Contact
 from .models import MyUser
 
 
@@ -54,8 +56,27 @@ def register(request):
     return render(request, 'accounts/register.html ')
 
 
+@login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html ')
+    user_inquiry = Contact.objects.order_by('-create_date').filter(user_id=request.user.id)
+    data = {
+        'inquiries': user_inquiry,
+    }
+    return render(request, 'accounts/dashboard.html', data)
+
+
+def delete(request, id):
+    my_dash = Contact.objects.order_by('-create_date').filter(user_id=request.user.id, pk=id)
+    if request.method == 'GET':
+        data = {
+            'car_dash': my_dash
+        }
+        return render(request, 'accounts/dashboard.html', data)
+    elif request.method == 'POST':
+        my_dash.delete()
+        messages.success(request, 'Авто видалено з обраних!')
+        return redirect('dashboard')
+
 
 
 def logout(request):

@@ -199,11 +199,11 @@
                 <div class="sidebar-right">
                     <!-- Advanced search start -->
                     <div class="widget advanced-search d-none-992">
-                        <button class="btn btn-outline-danger bomd btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Send message</button>
+                        <button class="btn btn-outline-danger bomd btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Надіслати запит</button>
 
 
                         <br>
-                        <h3 class="sidebar-title">Refine Your Search</h3>
+                        <h3 class="sidebar-title">Характеристики:</h3>
                         <ul>
                             <li>
                                 <span>Кузов:</span>{{ single_car.body_style }}
@@ -262,14 +262,16 @@
                                     <input type="hidden" name="user_id" value="0">
                                 {% endif %}
                                 <input type="hidden" name="car_id" value="{{ single_car.id }}">
+                                <input type="hidden" name="price" value="{{ single_car.price }}">
+                                <input type="hidden" name="price_new" value="{{ single_car.price_new }}">
                                 <div class="form-group">
-                                  <label for="name" class="col-form-label">Hello, My Name is</label>
+                                  <label for="name" class="col-form-label">Вітаю, мене звати</label>
                                   <div class="row">
                                     <div class="col">
-                                      <input type="text" name="first_name" class="form-control" placeholder="First Name" {% if user.is_authenticated %} value="{{ user.first_name}}" {% endif %} required>
+                                      <input type="text" name="first_name" class="form-control" placeholder="Имя" {% if user.is_authenticated %} value="{{ user.first_name}}" {% endif %} required>
                                     </div>
                                     <div class="col">
-                                      <input type="text" name="last_name" class="form-control" placeholder="Last Name" {% if user.is_authenticated %} value="{{ user.last_name}}" {% endif %} required>
+                                      <input type="text" name="last_name" class="form-control" placeholder="Прізвище" {% if user.is_authenticated %} value="{{ user.last_name}}" {% endif %} required>
                                     </div>
                                   </div>
                                 </div>
@@ -287,13 +289,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                  <label for="name" class="col-form-label">I live in</label>
+                                  <label for="name" class="col-form-label">Я проживаю</label>
                                   <div class="row">
                                     <div class="col">
-                                      <input type="text" name="city" class="form-control" placeholder="City" required>
+                                      <input type="text" name="city" class="form-control" placeholder="Місто" required>
                                     </div>
                                     <div class="col">
-                                      <input type="text" name="region" class="form-control" placeholder="Region" required>
+                                      <input type="text" name="region" class="form-control" placeholder="Область" required>
                                     </div>
                                   </div>
                                 </div>
@@ -301,22 +303,22 @@
                                 <div class="form-group">
                                   <div class="row">
                                     <div class="col">
-                                        <label for="name" class="col-form-label">You can reach me by email at</label>
-                                      <input type="email" name="email" class="form-control" placeholder="Email Address" {% if user.is_authenticated %} value="{{ user.email}}" {% endif %} required>
+                                        <label for="name" class="col-form-label">Напишіь мені на пошту:</label>
+                                      <input type="email" name="email" class="form-control" placeholder="Email" {% if user.is_authenticated %} value="{{ user.email}}" {% endif %} required>
                                     </div>
                                     <div class="col">
-                                        <label for="phone" class="col-form-label">or by phone at</label>
-                                      <input type="text" name="phone" placeholder="Phone Number (optional)" class="form-control">
+                                        <label for="phone" class="col-form-label">або наберіть за телефоном</label>
+                                      <input type="text" name="phone" placeholder="Телефон" class="form-control">
                                     </div>
                                   </div>
                                 </div>
 
                                 <div class="form-group">
-                                  <label for="message" class="col-form-label">Add comments</label>
-                                  <textarea name="message" class="form-control" placeholder="Enter your message here (optional)"></textarea>
+                                  <label for="message" class="col-form-label">Додати коментар</label>
+                                  <textarea name="message" class="form-control" placeholder="Введіть коментар"></textarea>
                                 </div>
                                 <hr>
-                                <input type="submit" value="Send" class="btn btn-block btn-danger">
+                                <input type="submit" value="Надіслати" class="btn btn-block btn-danger">
                             </form>
                           </div>
                         </div>
@@ -324,16 +326,16 @@
                     </div>
                     <!-- Question start -->
                     <div class="widget question">
-                        <h5 class="sidebar-title">Get a Question?</h5>
+                        <h5 class="sidebar-title">Потрібна допомога?</h5>
                         <ul class="contact-info">
                             <li>
-                                <i class="flaticon-pin"></i>20/F Green Road, Dhanmondi
+                                <i class="flaticon-pin"></i>вул. Шевченка, 5 м.Київ
                             </li>
                             <li>
-                                <i class="flaticon-mail"></i><a href="mailto:info@themevessel.com">info@themevessel.com</a>
+                                <i class="flaticon-mail"></i><a href="info@carcenter.com">info@carcenter.com</a>
                             </li>
                             <li>
-                                <i class="flaticon-phone"></i><a href="tel:+0477-85x6-552">+0477 85x6 552</a>
+                                <i class="flaticon-phone"></i><a href="tel:+380689820001">+380689820001</a>
                             </li>
                         </ul>
                         <div class="social-list clearfix">

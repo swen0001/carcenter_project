@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from accounts.models import MyUser
 from .models import Team
 from cars.models import Car
+from django.core.mail import send_mail
 
 
 def home(request):
@@ -37,6 +40,28 @@ def cars(request):
 
 
 def contacts(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        phone = request.POST['phone']
+        message = request.POST['message']
+        email_subject = 'У Вас нове повідомлення' + subject
+        message_body = "Ім'я: " + name + ', Email: ' + email + ', Телефон: ' + phone + ', Повідомлення: ' + message
+
+        admin_info = MyUser.objects.get(is_superuser=True)
+        admin_email = admin_info.email
+
+        send_mail(
+                email_subject,
+                message_body,
+                'sanyavenger23@gmail.com',
+                [admin_email],
+                fail_silently=False,
+
+            )
+        messages.success(request, "Дякую за повідомлення, ми з Вами зв`яжимось")
+        return redirect('contacts')
     return render(request, 'home/contacts.html')
 
 

@@ -9,10 +9,10 @@
 <div class="sub-banner overview-bgi">
     <div class="container breadcrumb-area">
         <div class="breadcrumb-areas">
-            <h1>Contact Us</h1>
+            <h1>Контакти</h1>
             <ul class="breadcrumbs">
-                <li><a href="index.html">Home</a></li>
-                <li class="active">Contact Us</li>
+                <li><a href="{% url 'home' %}">Головна</a></li>
+                <li class="active">Контакти</li>
             </ul>
         </div>
     </div>
@@ -24,16 +24,18 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title text-center">
-            <h1>Contact <span>Us</span></h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+            <h1>Зв'яжіться <span>з Нами</span></h1>
+            <p>У разі винекнення запинь, зв'жіться з нами в зручний для вас спосіб</p>
         </div>
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{% url 'contacts' %}" method="POST" enctype="multipart/form-data">
+            {% include 'layouts/messages.html' %}
+            {% csrf_token %}
             <div class="row">
                 <div class="col-lg-7">
                     <div class="row">
                         <div class="col-md-6 text-left">
                             <div class="form-group name">
-                                <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                                <input type="text" name="name" class="form-control" placeholder="Ім'я" required>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -43,22 +45,22 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group subject">
-                                <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                                <input type="text" name="subject" class="form-control" placeholder="Тема звернення" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group number">
-                                <input type="text" name="phone" class="form-control" placeholder="Phone Number">
+                                <input type="text" name="phone" class="form-control" placeholder="Телефон">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group message">
-                                <textarea class="form-control" name="message" placeholder="Write message"></textarea>
+                                <textarea class="form-control" name="message" placeholder="Напишіть ваше повідомлення"></textarea>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="send-btn text-center">
-                                <button type="submit" class="btn btn-md button-theme">Send Message</button>
+                                <button type="submit" class="btn btn-md button-theme">Відправити повідомлення</button>
                             </div>
                         </div>
                     </div>
@@ -70,8 +72,8 @@
                                 <i class="flaticon-phone"></i>
                             </div>
                             <div class="detail">
-                                <h5>Phone:</h5>
-                                <p><a href="#">0477 8556 552</a></p>
+                                <h5>Телефон:</h5>
+                                <p><a href="#">+380689820001</a></p>
                             </div>
                         </div>
                         <div class="ci-box">
@@ -80,7 +82,7 @@
                             </div>
                             <div class="detail">
                                 <h5>Email:</h5>
-                                <p><a href="#">info@themevessel.com</a></p>
+                                <p><a href="#">info@carcenter.com</a></p>
                             </div>
                         </div>
                         <div class="ci-box">
@@ -89,7 +91,7 @@
                             </div>
                             <div class="detail">
                                 <h5>Web:</h5>
-                                <p><a href="#">info@themevessel.com</a></p>
+                                <p><a href="#">carcenter.com</a></p>
                             </div>
                         </div>
                         <div class="ci-box mb-0">
@@ -98,7 +100,7 @@
                             </div>
                             <div class="detail">
                                 <h5>Telegram</h5>
-                                <p><a href="#">АВТОБАЗАР</a></p>
+                                <p><a href="#">@carcenter</a></p>
                             </div>
                         </div>
                     </div>

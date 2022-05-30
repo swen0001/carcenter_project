@@ -6,6 +6,8 @@ class Contact(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     car_id = models.IntegerField()
+    price = models.IntegerField()
+    price_new = models.IntegerField()
     customer_need = models.CharField(max_length=100)
     car_title = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
