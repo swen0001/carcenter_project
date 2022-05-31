@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
-
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&zsz7wah23ixfacljo@tg7kk2x!0wvdwr6u&14f$!(y4l98&@2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -66,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'carcenter.urls'
@@ -94,17 +95,17 @@ WSGI_APPLICATION = 'carcenter.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'car_center_db',
-        'USER': 'postgres',
-        'PASSWORD': '159357venger',
-        'HOST': 'localhost',
-    }
-}
+#DATABASES = {
+ #   'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'car_center_db',
+#        'USER': 'postgres',
+#        'PASSWORD': '159357venger',
+#        'HOST': 'localhost',
+#    }
+#}
 
-
+DATABASES = {'default': dj_database_url.config(default='postgres://postgres:159357venger@localhost/car_center_db')}
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -169,3 +170,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'sanyavenger23@gmail.com'
 EMAIL_HOST_PASSWORD = '159357venger'
 EMAIL_USE_TLS = True
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
