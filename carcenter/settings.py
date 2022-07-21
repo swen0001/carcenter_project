@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&zsz7wah23ixfacljo@tg7kk2x!0wvdwr6u&14f$!(y4l98&@2'
+SECRET_KEY = 'SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -99,8 +99,8 @@ WSGI_APPLICATION = 'carcenter.wsgi.application'
  #   'default': {
 #        'ENGINE': 'django.db.backends.postgresql',
 #        'NAME': 'car_center_db',
-#        'USER': 'postgres',
-#        'PASSWORD': '159357venger',
+#        'USER': 'USER',
+#        'PASSWORD': 'PASSWORD',
 #        'HOST': 'localhost',
 #    }
 #}
@@ -168,7 +168,7 @@ AUTH_USER_MODEL = 'accounts.MyUser'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'sanyavenger23@gmail.com'
-EMAIL_HOST_PASSWORD = '159357venger'
+EMAIL_HOST_PASSWORD = 'PASSWORD'
 EMAIL_USE_TLS = True
 
 
